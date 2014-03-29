@@ -17,7 +17,7 @@ Instalacion
 
 Uso
 ===
-- En la consola de comandos ejecutar el archivo especificando la ruta del archivo de comandos.
+- En la consola de comandos ejecutar el archivo [MarsRovers.jar](https://github.com/jorgealvz/Mars-Rovers/releases/download/v1.0/MarsRovers.jar) especificando la ruta del archivo de comandos.
 
 Ejemplo:
 ~~~
