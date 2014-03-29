@@ -5,8 +5,8 @@ Solución al problema Mars Rovers en Java con Netbeans a partir de un archivo co
 
 Requerimientos
 ==============
-- JDK 1.7 o superior
-- Netbeans 7.2 o superior
+- JDK 1.6 o superior
+- Netbeans 7.0 o superior
 
 
 Instalacion
