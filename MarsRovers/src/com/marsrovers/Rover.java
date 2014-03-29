@@ -111,13 +111,12 @@ public class Rover implements IRover {
 
         for (char comando : comandos) {
 
-            switch (String.valueOf(comando)) {
-                case Comandos.AVANZAR:
-                    avanzar();
-                    break;
-                default:
-                    girar(String.valueOf(comando));
+            if (String.valueOf(comando).equals(Comandos.AVANZAR)) {
+                avanzar();
+            } else {
+                girar(String.valueOf(comando));
             }
+
         }
     }
 
@@ -132,19 +131,14 @@ public class Rover implements IRover {
         int coordenadaX = this.x;
         int coordenadaY = this.y;
 
-        switch (this.direccion) {
-            case Direcciones.NORTE:
-                coordenadaY = coordenadaY + 1;
-                break;
-            case Direcciones.ESTE:
-                coordenadaX = coordenadaX + 1;
-                break;
-            case Direcciones.SUR:
-                coordenadaY = coordenadaY - 1;
-                break;
-            case Direcciones.OESTE:
-                coordenadaX = coordenadaX - 1;
-                break;
+        if (this.direccion.equals(Direcciones.NORTE)) {
+            coordenadaY = coordenadaY + 1;
+        } else if (this.direccion.equals(Direcciones.ESTE)) {
+            coordenadaX = coordenadaX + 1;
+        } else if (this.direccion.equals(Direcciones.SUR)) {
+            coordenadaY = coordenadaY - 1;
+        } else if (this.direccion.equals(Direcciones.OESTE)) {
+            coordenadaX = coordenadaX - 1;
         }
 
         if (validarCoordenada(coordenadaX, coordenadaY)) {
@@ -161,16 +155,14 @@ public class Rover implements IRover {
      */
     public void girar(String comandoDireccion) {
 
-        switch (comandoDireccion) {
-            case Comandos.GIRAR_IZQUIERDA:
-                girarIzquierda();
-                break;
-            case Comandos.GIRAR_DERECHA:
-                girarDerecha();
-                break;
-            default:
-                throw new IllegalArgumentException("Comando no valido");
+        if (comandoDireccion.equals(Comandos.GIRAR_IZQUIERDA)) {
+            girarIzquierda();
+        } else if (comandoDireccion.equals(Comandos.GIRAR_DERECHA)) {
+            girarDerecha();
+        } else {
+            throw new IllegalArgumentException("Comando no valido");
         }
+
     }
 
     /**
@@ -198,20 +190,16 @@ public class Rover implements IRover {
      */
     private void girarIzquierda() {
 
-        switch (this.direccion) {
-            case Direcciones.NORTE:
-                this.direccion = Direcciones.OESTE;
-                break;
-            case Direcciones.OESTE:
-                this.direccion = Direcciones.SUR;
-                break;
-            case Direcciones.SUR:
-                this.direccion = Direcciones.ESTE;
-                break;
-            case Direcciones.ESTE:
-                this.direccion = Direcciones.NORTE;
-                break;
+        if (this.direccion.equals(Direcciones.NORTE)) {
+            this.direccion = Direcciones.OESTE;
+        } else if (this.direccion.equals(Direcciones.OESTE)) {
+            this.direccion = Direcciones.SUR;
+        } else if (this.direccion.equals(Direcciones.SUR)) {
+            this.direccion = Direcciones.ESTE;
+        } else if (this.direccion.equals(Direcciones.OESTE)) {
+            this.direccion = Direcciones.NORTE;
         }
+
     }
 
     /**
@@ -219,20 +207,16 @@ public class Rover implements IRover {
      */
     private void girarDerecha() {
 
-        switch (this.direccion) {
-            case Direcciones.NORTE:
-                this.direccion = Direcciones.ESTE;
-                break;
-            case Direcciones.ESTE:
-                this.direccion = Direcciones.SUR;
-                break;
-            case Direcciones.SUR:
-                this.direccion = Direcciones.OESTE;
-                break;
-            case Direcciones.OESTE:
-                this.direccion = Direcciones.NORTE;
-                break;
+        if (this.direccion.equals(Direcciones.NORTE)) {
+            this.direccion = Direcciones.ESTE;
+        } else if (this.direccion.equals(Direcciones.ESTE)) {
+            this.direccion = Direcciones.SUR;
+        } else if (this.direccion.equals(Direcciones.SUR)) {
+            this.direccion = Direcciones.OESTE;
+        } else if (this.direccion.equals(Direcciones.OESTE)) {
+            this.direccion = Direcciones.NORTE;
         }
+
     }
 
     @Override

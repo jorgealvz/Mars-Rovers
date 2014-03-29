@@ -31,7 +31,7 @@ public class MarsRovers {
 
     public List<String> getContenidoArchivo(File file) {
 
-        List<String> contenido = new ArrayList<>();
+        List<String> contenido = new ArrayList<String>();
 
         BufferedReader br = null;
         try {
