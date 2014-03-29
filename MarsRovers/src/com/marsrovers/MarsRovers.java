@@ -1,8 +1,11 @@
 package com.marsrovers;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,6 +29,36 @@ public class MarsRovers {
         return new Rover(plataforma, rover);
     }
 
+    public List<String> getContenidoArchivo(File file) {
+
+        List<String> contenido = new ArrayList<>();
+
+        BufferedReader br = null;
+        try {
+            String linea = null;
+
+            br = new BufferedReader(new FileReader(file));
+
+            while ((linea = br.readLine()) != null) {
+                contenido.add(linea);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(MarsRovers.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(MarsRovers.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(MarsRovers.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+
+        return contenido;
+    }
+
     /**
      * @param args Ruta del archivo de comandos
      */
@@ -36,7 +69,7 @@ public class MarsRovers {
 
             MarsRovers marsRovers = new MarsRovers();
 
-            List<String> lines = Files.readAllLines(Paths.get(rutaArchivo));
+            List<String> lines = marsRovers.getContenidoArchivo(new File(rutaArchivo));
             if (lines.size() < 3 || (lines.size() % 2) == 0) {
                 throw new IllegalArgumentException("El archivo de comandos no tiene el formato correcto");
             }
@@ -58,7 +91,7 @@ public class MarsRovers {
                 System.out.println(rover.toString());
             }
 
-        } catch (IOException | IllegalArgumentException ex) {
+        } catch (IllegalArgumentException ex) {
             Logger.getLogger(MarsRovers.class.getName()).log(Level.SEVERE, null, ex);
         }
 
