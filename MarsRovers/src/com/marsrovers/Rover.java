@@ -196,7 +196,7 @@ public class Rover implements IRover {
             this.direccion = Direcciones.SUR;
         } else if (this.direccion.equals(Direcciones.SUR)) {
             this.direccion = Direcciones.ESTE;
-        } else if (this.direccion.equals(Direcciones.OESTE)) {
+        } else if (this.direccion.equals(Direcciones.ESTE)) {
             this.direccion = Direcciones.NORTE;
         }
 
