@@ -1,7 +1,13 @@
 Mars-Rovers
 ===========
 
-Solución al problema Mars Rovers en Java con Netbeans 8.0.
+Solución al problema Mars Rovers en Java con Netbeans.
+
+Requerimientos
+==============
+- JDK 1.7 o superior
+- Netbeans 7.2 o superior
+
 
 Uso
 ===========
